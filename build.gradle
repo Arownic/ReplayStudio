@@ -12,11 +12,11 @@ buildscript {
     }
 }
 
-defaultTasks 'clean', 'build', 'shadowJar', 'install'
-
 plugins {
-    id("com.github.johnrengelman.shadow") version "5.2.0"
+    id("com.github.johnrengelman.shadow") version "4.0.4"
 }
+
+defaultTasks 'clean', 'build', 'shadowJar', 'install'
 
 apply plugin: 'java'
 apply plugin: 'application'
