@@ -60,7 +60,7 @@ public class EntityPositionTracker {
     private static final String CACHE_ENTRY = "entity_positions.bin";
     private static final String OLD_CACHE_ENTRY = "entity_positions.json";
 
-    private static final Logger logger = ILogger.getLogger();
+    private static final Logger logger = ILogger.get();
 
     private final ReplayFile replayFile;
 
