@@ -112,19 +112,8 @@ shadowJar {
 }
 build.dependsOn shadowJar
 
-jar {
-    classifier = 'raw'
-    manifest {
-        mainAttributes(
-            'Main-Class': mainClassName,
-            'Implementation-Title': description,
-            'Implementation-Version': gitCommitHash()
-        )
-    }
-}
-/**
 jar.manifest.mainAttributes(
         'Main-Class': mainClassName,
         'Implementation-Title': description,
         'Implementation-Version': gitCommitHash()
-)**/
+)
