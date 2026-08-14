@@ -18,10 +18,10 @@
  */
 package com.replaymod.replaystudio.viaversion;
 
-import com.replaymod.replaystudio.lib.viaversion.ViaManager;
-import com.replaymod.replaystudio.lib.viaversion.api.Via;
-import com.replaymod.replaystudio.lib.viaversion.api.data.UserConnection;
-import com.replaymod.replaystudio.lib.viaversion.protocols.base.ProtocolInfo;
+import us.myles.ViaVersion.ViaManager;
+import us.myles.ViaVersion.api.Via;
+import us.myles.ViaVersion.api.data.UserConnection;
+import us.myles.ViaVersion.protocols.base.ProtocolInfo;
 
 import java.util.Collections;
 import java.util.Map;

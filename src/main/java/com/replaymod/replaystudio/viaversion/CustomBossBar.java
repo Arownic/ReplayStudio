@@ -18,9 +18,9 @@
  */
 package com.replaymod.replaystudio.viaversion;
 
-import com.replaymod.replaystudio.lib.viaversion.api.boss.BossColor;
-import com.replaymod.replaystudio.lib.viaversion.api.boss.BossStyle;
-import com.replaymod.replaystudio.lib.viaversion.boss.CommonBoss;
+import us.myles.ViaVersion.api.boss.BossColor;
+import us.myles.ViaVersion.api.boss.BossStyle;
+import us.myles.ViaVersion.boss.CommonBoss;
 
 public class CustomBossBar extends CommonBoss<Void> {
     public CustomBossBar(String title, float health, BossColor color, BossStyle style) {

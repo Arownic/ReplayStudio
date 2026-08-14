@@ -18,20 +18,20 @@
  */
 package com.replaymod.replaystudio.viaversion;
 
-import com.github.steveice10.netty.buffer.ByteBuf;
-import com.github.steveice10.netty.channel.ChannelFuture;
-import com.github.steveice10.netty.channel.embedded.EmbeddedChannel;
+import io.netty.buffer.ByteBuf;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.embedded.EmbeddedChannel;
 import com.github.steveice10.packetlib.tcp.io.ByteBufNetInput;
-import com.replaymod.replaystudio.lib.viaversion.api.PacketWrapper;
-import com.replaymod.replaystudio.lib.viaversion.api.Pair;
-import com.replaymod.replaystudio.lib.viaversion.api.data.UserConnection;
-import com.replaymod.replaystudio.lib.viaversion.api.protocol.Protocol;
-import com.replaymod.replaystudio.lib.viaversion.api.protocol.ProtocolPipeline;
-import com.replaymod.replaystudio.lib.viaversion.api.protocol.ProtocolRegistry;
-import com.replaymod.replaystudio.lib.viaversion.exception.CancelException;
-import com.replaymod.replaystudio.lib.viaversion.packets.Direction;
-import com.replaymod.replaystudio.lib.viaversion.packets.State;
-import com.replaymod.replaystudio.lib.viaversion.protocols.base.ProtocolInfo;
+import us.myles.ViaVersion.api.PacketWrapper;
+import us.myles.ViaVersion.api.Pair;
+import us.myles.ViaVersion.api.data.UserConnection;
+import us.myles.ViaVersion.api.protocol.Protocol;
+import us.myles.ViaVersion.api.protocol.ProtocolPipeline;
+import us.myles.ViaVersion.api.protocol.ProtocolRegistry;
+import us.myles.ViaVersion.exception.CancelException;
+import us.myles.ViaVersion.packets.Direction;
+import us.myles.ViaVersion.packets.State;
+import us.myles.ViaVersion.protocols.base.ProtocolInfo;
 
 import java.io.IOException;
 import java.util.ArrayList;

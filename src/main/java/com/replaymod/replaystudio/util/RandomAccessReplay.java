@@ -19,8 +19,8 @@
 
 package com.replaymod.replaystudio.util;
 
-import com.github.steveice10.netty.buffer.ByteBuf;
-import com.github.steveice10.netty.buffer.Unpooled;
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
 import com.github.steveice10.packetlib.io.NetInput;
 import com.github.steveice10.packetlib.io.NetOutput;
 import com.github.steveice10.packetlib.io.stream.StreamNetInput;
@@ -48,7 +48,7 @@ import com.replaymod.replaystudio.protocol.packets.PacketUpdateLight;
 import com.replaymod.replaystudio.protocol.packets.PacketUpdateViewDistance;
 import com.replaymod.replaystudio.protocol.packets.PacketUpdateViewPosition;
 import com.replaymod.replaystudio.replay.ReplayFile;
-import com.replaymod.replaystudio.lib.viaversion.api.protocol.ProtocolVersion;
+import us.myles.ViaVersion.api.protocol.ProtocolVersion;
 
 import java.io.EOFException;
 import java.io.IOException;

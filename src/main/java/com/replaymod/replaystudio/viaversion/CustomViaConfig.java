@@ -18,7 +18,7 @@
  */
 package com.replaymod.replaystudio.viaversion;
 
-import com.replaymod.replaystudio.lib.viaversion.api.ViaVersionConfig;
+import us.myles.ViaVersion.api.ViaVersionConfig;
 import it.unimi.dsi.fastutil.ints.IntSet;
 
 // Configured as per recommendations at https://docs.viaversion.com/display/VIAVERSION/Configuration

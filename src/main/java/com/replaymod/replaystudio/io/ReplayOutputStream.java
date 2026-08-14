@@ -18,9 +18,9 @@
  */
 package com.replaymod.replaystudio.io;
 
-import com.github.steveice10.netty.buffer.ByteBuf;
-import com.github.steveice10.netty.buffer.ByteBufAllocator;
-import com.github.steveice10.netty.buffer.PooledByteBufAllocator;
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.ByteBufAllocator;
+import io.netty.buffer.PooledByteBufAllocator;
 import com.github.steveice10.packetlib.tcp.io.ByteBufNetOutput;
 import com.google.gson.Gson;
 import com.replaymod.replaystudio.PacketData;
@@ -31,8 +31,8 @@ import com.replaymod.replaystudio.protocol.PacketTypeRegistry;
 import com.replaymod.replaystudio.protocol.packets.PacketLoginSuccess;
 import com.replaymod.replaystudio.replay.ReplayMetaData;
 import com.replaymod.replaystudio.studio.ReplayStudio;
-import com.replaymod.replaystudio.lib.viaversion.api.protocol.ProtocolVersion;
-import com.replaymod.replaystudio.lib.viaversion.packets.State;
+import us.myles.ViaVersion.api.protocol.ProtocolVersion;
+import us.myles.ViaVersion.packets.State;
 
 import java.io.IOException;
 import java.io.OutputStream;

@@ -30,8 +30,8 @@ import com.replaymod.replaystudio.replay.ReplayMetaData;
 import com.replaymod.replaystudio.replay.ZipReplayFile;
 import com.replaymod.replaystudio.stream.PacketStream;
 import com.replaymod.replaystudio.studio.ReplayStudio;
-import com.replaymod.replaystudio.lib.viaversion.api.protocol.ProtocolVersion;
-import com.replaymod.replaystudio.lib.viaversion.packets.State;
+import us.myles.ViaVersion.api.protocol.ProtocolVersion;
+import us.myles.ViaVersion.packets.State;
 import org.apache.commons.cli.CommandLine;
 
 import java.io.*;

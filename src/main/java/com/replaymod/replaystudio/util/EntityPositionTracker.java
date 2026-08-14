@@ -23,14 +23,16 @@ import com.github.steveice10.packetlib.io.NetOutput;
 import com.github.steveice10.packetlib.io.stream.StreamNetInput;
 import com.github.steveice10.packetlib.io.stream.StreamNetOutput;
 import com.google.common.base.Optional;
+import com.replaymod.replaystudio.ILogger;
 import com.replaymod.replaystudio.PacketData;
 import com.replaymod.replaystudio.io.ReplayInputStream;
 import com.replaymod.replaystudio.protocol.Packet;
 import com.replaymod.replaystudio.protocol.PacketTypeRegistry;
 import com.replaymod.replaystudio.replay.ReplayFile;
 import com.replaymod.replaystudio.replay.ReplayMetaData;
-import com.replaymod.replaystudio.lib.viaversion.api.protocol.ProtocolVersion;
-import com.replaymod.replaystudio.lib.viaversion.packets.State;
+import us.myles.ViaVersion.api.protocol.ProtocolVersion;
+import us.myles.ViaVersion.packets.State;
+import org.apache.logging.log4j.Logger;
 
 import java.io.EOFException;
 import java.io.IOException;
@@ -57,6 +59,8 @@ import java.util.function.Consumer;
 public class EntityPositionTracker {
     private static final String CACHE_ENTRY = "entity_positions.bin";
     private static final String OLD_CACHE_ENTRY = "entity_positions.json";
+
+    private static final Logger logger = ILogger.getLogger();
 
     private final ReplayFile replayFile;
 
@@ -162,7 +166,13 @@ public class EntityPositionTracker {
             while ((packetData = in.readPacket()) != null) {
                 Packet packet = packetData.getPacket();
 
-                Integer entityID = PacketUtils.getEntityId(packet);
+                Integer entityID;
+                try {
+                    entityID = PacketUtils.getEntityId(packet);
+                } catch (Exception e) {
+                    logger.warn("Skipping malformed packet ({}) while loading entity tracker", packet.getType(), e);
+                    entityID = null;
+                }
                 if (entityID == null) {
                     packet.release();
                     continue;
@@ -174,7 +184,13 @@ public class EntityPositionTracker {
                 }
 
                 Location oldPosition = positions.isEmpty() ? null : positions.lastEntry().getValue();
-                Location newPosition = PacketUtils.updateLocation(oldPosition, packet);
+                Location newPosition;
+                try {
+                    newPosition = PacketUtils.updateLocation(oldPosition, packet);
+                } catch (Exception e) {
+                    logger.warn("Skipping malformed packet ({}) while updating entity tracker location", packet.getType(), e);
+                    newPosition = null;
+                }
 
                 if (newPosition != null) {
                     positions.put(packetData.getTime(), newPosition);
