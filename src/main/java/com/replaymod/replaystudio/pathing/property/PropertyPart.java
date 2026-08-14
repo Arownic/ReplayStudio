@@ -36,7 +36,7 @@ public interface PropertyPart<T> {
     /**
      * Returns the upper bound (exclusive) of the range of this part, the lower bound is always 0 (inclusive).<br>
      * If {@link Double#NaN} is returned, no range restrictions are imposed on this part.<br>
-     * If the range is well defined (> 0), then this part is treated as a cyclic value which wraps around.
+     * If the range is well defined (greater than 0), then this part is treated as a cyclic value which wraps around.
      * Cyclic values will be interpolated differently than normal values as there might be a shortcut by passing
      * over the bounds.<br>
      * Negative values are wrapped around to positive values automatically.

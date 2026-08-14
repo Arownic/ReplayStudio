@@ -57,7 +57,6 @@ public interface Interpolator {
 
     /**
      * Add the specified path segment to this interpolator.
-     * <p/>
      * This method should be called by the PathSegment itself.
      *
      * @param segment The path segments
@@ -66,7 +65,6 @@ public interface Interpolator {
 
     /**
      * Remove the specified path segment from this interpolator.
-     * <p/>
      * This method should be called by the PathSegment itself.
      *
      * @param segment The path segments
