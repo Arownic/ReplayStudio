@@ -112,6 +112,7 @@ shadowJar {
 }
 build.dependsOn shadowJar
 
+jar.classifier = 'raw'
 jar.manifest.mainAttributes(
         'Main-Class': mainClassName,
         'Implementation-Title': description,
