@@ -13,7 +13,7 @@ buildscript {
 }
 
 plugins {
-    id("com.github.johnrengelman.shadow") version "2.0.4"
+    id("com.github.johnrengelman.shadow") version "5.2.0"
 }
 
 defaultTasks 'clean', 'build', 'shadowJar', 'install'
@@ -95,7 +95,10 @@ dependencies {
     compile 'org.apache.commons:commons-lang3:3.3.2'
     compile 'org.apache.commons:commons-collections4:4.0'
     compile 'commons-cli:commons-cli:1.2'
+
     compileOnly "org.projectlombok:lombok:1.16.6"
+    annotationProcessor "org.projectlombok:lombok:1.16.6"
+
     testCompile 'junit:junit:4.11'
     testCompile 'com.google.guava:guava-testlib:18.0'
     testCompile 'pl.pragmatists:JUnitParams:1.0.4'
@@ -103,6 +106,13 @@ dependencies {
 
 shadowJar {
     archiveName = "${baseName}-${version}.${extension}"
+    manifest {
+        attributes(
+                'Main-Class': mainClassName,
+                'Implementation-Title': description,
+                'Implementation-Version': gitCommitHash()
+        )
+    }
     append('META-INF/NOTICE.txt')
     relocate 'io.netty', 'com.github.steveice10.netty'
     relocate 'us.myles.ViaVersion', 'com.replaymod.replaystudio.lib.viaversion'
