@@ -8,12 +8,15 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.github.johnrengelman:shadow:1.2.3'
         classpath 'com.github.johni0702:gradle-reproducible-builds-plugin:3dbf20d'
     }
 }
 
 defaultTasks 'clean', 'build', 'shadowJar', 'install'
+
+plugins {
+    id("com.github.johnrengelman.shadow") version "5.2.0"
+}
 
 apply plugin: 'java'
 apply plugin: 'application'
