@@ -98,7 +98,7 @@ dependencies {
 }
 
 shadowJar {
-    classifier = 'full'
+    classifier = ''
     relocate 'io.netty', 'com.github.steveice10.netty'
     relocate 'us.myles.ViaVersion', 'com.replaymod.replaystudio.lib.viaversion'
 
@@ -112,7 +112,7 @@ shadowJar {
 tasks.build.dependsOn tasks.shadowJar
 
 jar {
-    classifier = ''
+    classifier = 'raw'
     manifest {
         attributes(
                 'Main-Class': mainClassName,
