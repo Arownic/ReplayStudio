@@ -98,10 +98,10 @@ dependencies {
 }
 
 shadowJar {
-    archiveName = "${baseName}-${version}.full.${extension}"
-    append('META-INF/NOTICE.txt')
     relocate 'io.netty', 'com.github.steveice10.netty'
     relocate 'us.myles.ViaVersion', 'com.replaymod.replaystudio.lib.viaversion'
+    archiveName = "${baseName}-${version}.full.${extension}"
+    append('META-INF/NOTICE.txt')
 
     // un-shading from ViaVersion (see dependencies)
     exclude 'com/google/gson/**' // gson
