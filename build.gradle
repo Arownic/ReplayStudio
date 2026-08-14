@@ -13,7 +13,7 @@ buildscript {
 }
 
 plugins {
-    id("com.github.johnrengelman.shadow") version "4.0.4"
+    id("com.github.johnrengelman.shadow") version "2.0.4"
 }
 
 defaultTasks 'clean', 'build', 'shadowJar', 'install'
@@ -22,8 +22,9 @@ apply plugin: 'java'
 apply plugin: 'application'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
-apply plugin: 'com.github.johnrengelman.shadow'
 apply plugin: 'maven'
+apply plugin: 'maven-publish'
+apply plugin: 'com.github.johnrengelman.shadow'
 apply plugin: 'de.johni0702.reproducible-builds'
 
 def gitCommitHash() {
