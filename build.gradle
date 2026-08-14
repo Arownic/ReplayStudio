@@ -98,10 +98,9 @@ dependencies {
 }
 
 shadowJar {
+    classifier = 'full'
     relocate 'io.netty', 'com.github.steveice10.netty'
     relocate 'us.myles.ViaVersion', 'com.replaymod.replaystudio.lib.viaversion'
-    archiveName = "${baseName}-${version}.full.${extension}"
-    append('META-INF/NOTICE.txt')
 
     // un-shading from ViaVersion (see dependencies)
     exclude 'com/google/gson/**' // gson
@@ -110,7 +109,19 @@ shadowJar {
     // don't need this one, ViaVersion uses it to parse configs (which we never need to do)
     exclude 'org/yaml/snakeyaml/**' // snakeyaml
 }
-build.dependsOn shadowJar
+tasks.build.dependsOn tasks.shadowJar
+
+jar {
+    classifier = ''
+    manifest {
+        attributes(
+                'Main-Class': mainClassName,
+                'Implementation-Title': description,
+                'Implementation-Version': gitCommitHash()
+        )
+    }
+}
+
 
 jar.manifest.mainAttributes(
         'Main-Class': mainClassName,
