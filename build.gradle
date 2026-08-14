@@ -98,7 +98,8 @@ dependencies {
 }
 
 shadowJar {
-    classifier = ''
+    archiveName = "${baseName}-${version}.${extension}"
+    append('META-INF/NOTICE.txt')
     relocate 'io.netty', 'com.github.steveice10.netty'
     relocate 'us.myles.ViaVersion', 'com.replaymod.replaystudio.lib.viaversion'
 
@@ -109,15 +110,21 @@ shadowJar {
     // don't need this one, ViaVersion uses it to parse configs (which we never need to do)
     exclude 'org/yaml/snakeyaml/**' // snakeyaml
 }
-tasks.jar.dependsOn tasks.shadowJar
+build.dependsOn shadowJar
 
 jar {
     classifier = 'raw'
     manifest {
-        attributes(
-                'Main-Class': mainClassName,
-                'Implementation-Title': description,
-                'Implementation-Version': gitCommitHash()
+        mainAttributes(
+            'Main-Class': mainClassName,
+            'Implementation-Title': description,
+            'Implementation-Version': gitCommitHash()
         )
     }
 }
+/**
+jar.manifest.mainAttributes(
+        'Main-Class': mainClassName,
+        'Implementation-Title': description,
+        'Implementation-Version': gitCommitHash()
+)**/
