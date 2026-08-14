@@ -121,11 +121,3 @@ jar {
         )
     }
 }
-
-
-jar.manifest.mainAttributes(
-        'Main-Class': mainClassName,
-        'Implementation-Title': description,
-        'Implementation-Version': gitCommitHash()
-)
-
